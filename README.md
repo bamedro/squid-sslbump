@@ -7,10 +7,10 @@ Sample config available in the github repo @ https://github.com/jamesyale/squid-
 
 To build: 
 
-    docker build -t jamesyale/squid-sslbump .
+    docker build -t squid-sslbump .
 
 Due to the way squid needs to init it's cache directories and my lack of willingness to use a startup script the squid config / SSL key have to be pushed in at build time, but can be overridden later. 
 
 To run: 
 
-    docker run -d --name squid-sslbump -p 3128:3128 -v `pwd`/squid-config:/etc/squid jamesyale/squid-sslbump
+    docker run -d --name squid-sslbump -p 3128:3128 -v `pwd`/logs:/var/log squid-sslbump
